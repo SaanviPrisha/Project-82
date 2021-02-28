@@ -6,6 +6,8 @@ import LoginScreen from './Screens/SignUpLoginScreen'
 import ExchangeScreen from './Screens/ExchangeScreen'
 import HomeScreen from './Screens/HomeScreen'
 import SettingScreen from './Screens/SettingScreen'
+import DonationDetails from './Screens/DetailsScreen'
+import MyDonations from './Screens/DonationScreen'
 
 
 export default class App extends React.Component {
@@ -37,9 +39,18 @@ const Tab = createBottomTabNavigator({
   }
 
 )
+
+const Stack = createStackNavigator({
+  Donate: {screen: ExchangeScreen,
+  navigationOptions: {
+    headerShown: false
+  }},
+  Details: { screen: RecieverDetails}
+})
 const Drawer = createDrawerNavigator({
     Home: {screen: Tab},
-    Settings: { screen: SettingScreen }
+    Settings: { screen: SettingScreen },
+    Donations: { screen: MyDonations },
 },{
   contentComponent: Sidebar
   },{
