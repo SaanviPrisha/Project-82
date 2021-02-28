@@ -57,17 +57,6 @@ export default class RecieverDetails extends React.Component {
         this.getDetails()
         this.getUserDetails()
   }
-  notification = () => {
-    db.collection("All_Notifications").add({
-      target_user_id: this.state.recieverID,
-      donor_id: this.state.userId,
-      request_id: this.state.requestID, 
-      book_name: this.state.bookName, 
-      date: firebase.firestore.FieldValue.serverTimestamp(),
-      notification_status: "unread",
-      message: this.state.username + " has shown interested in donating " + this.state.bookName + "."
-    })
-  }
   updateBookStatus = () => {
     db.collection("All_Donations").add({
       book_name: this.state.bookName,
@@ -112,7 +101,6 @@ export default class RecieverDetails extends React.Component {
         <View style={{flex: 0.3}}>
             {this.state.recieverID != this.state.userId ? (
                 <TouchableOpacity onPress={() => {
-                  this.notification()
                   this.updateBookStatus()
                   this.props.navigation.navigate("Donations")
                 }} style={styles.button}>
