@@ -30,7 +30,11 @@ export default class ExchangeScreen extends React.Component {
         title = {item.itemName}
         subtitle={item.description,item.reason}
         titleStyle= {{fontSize: 20, fontFamily: "Courier New"}}
-        rightElement = {<TouchableOpacity style={styles.details}>
+        rightElement = {<TouchableOpacity onPress={() => {
+          this.props.navigation.navigate("Details",{'Data':item})
+        }} style={styles.details}>
+          <Text style={styles.textStyle}>View Details</Text>
+        </TouchableOpacity>}
           <Text style={styles.textStyle}>View Details</Text>
         </TouchableOpacity>}
         bottomDivider
