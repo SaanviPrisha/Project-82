@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Card } from 'react-native-elements'
-import db from '../Config'
+import db from '../config'
 import firebase from 'firebase'
 import { TouchableOpacity } from 'react-native';
 
